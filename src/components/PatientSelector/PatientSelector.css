@@ -1,0 +1,79 @@
+.patient-selector {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding: 20px 24px;
+  background: white;
+  border-bottom: 2px solid #e5e7eb;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.selector-group,
+.search-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  background: #f9fafb;
+  border-radius: 8px;
+  border: 2px solid #e5e7eb;
+  transition: border-color 0.2s;
+}
+
+.selector-group:focus-within,
+.search-group:focus-within {
+  border-color: #3b82f6;
+  background: white;
+}
+
+.selector-group {
+  flex: 0 0 350px;
+}
+
+.search-group {
+  flex: 1;
+  max-width: 400px;
+}
+
+.patient-dropdown {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 15px;
+  font-weight: 500;
+  color: #1f2937;
+  cursor: pointer;
+  outline: none;
+}
+
+.patient-dropdown option {
+  padding: 8px;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 15px;
+  color: #1f2937;
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: #9ca3af;
+}
+
+@media (max-width: 768px) {
+  .patient-selector {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .selector-group {
+    flex: 1;
+  }
+
+  .search-group {
+    max-width: 100%;
+  }
+}

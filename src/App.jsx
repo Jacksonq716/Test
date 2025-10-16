@@ -1,22 +1,41 @@
 import React, { useState, useEffect } from 'react'
 import { supabase } from './services/supabase'
-import LiveSession from './components/LiveSession/LiveSession'
+import PatientSelector from './components/PatientSelector/PatientSelector'
+import VideoStream from './components/VideoStream/VideoStream'
+import PatientMetrics from './components/PatientMetrics/PatientMetrics'
 import HistoricalCharts from './components/HistoricalCharts/HistoricalCharts'
 import DoctorNotes from './components/DoctorNotes/DoctorNotes'
 import RecoveryMetrics from './components/RecoveryMetrics/RecoveryMetrics'
 import DataEntry from './components/DataEntry/DataEntry'
-import { Activity } from 'lucide-react'
+import { Activity, ChevronDown, ChevronUp } from 'lucide-react'
 import './App.css'
 
 function App() {
+  // Patient management
+  const [patients, setPatients] = useState([
+    { id: 'PT-2024-001', name: 'John Doe', age: 52, diagnosis: 'ACL Reconstruction - Week 6' },
+    { id: 'PT-2024-002', name: 'Jane Smith', age: 45, diagnosis: 'Rotator Cuff Repair - Week 4' },
+    { id: 'PT-2024-003', name: 'Mike Johnson', age: 38, diagnosis: 'Meniscus Repair - Week 8' },
+  ])
+  const [selectedPatient, setSelectedPatient] = useState(null)
+  
+  // Data states
   const [liveSession, setLiveSession] = useState(null)
   const [historicalData, setHistoricalData] = useState([])
   const [doctorNotes, setDoctorNotes] = useState('')
   const [recoveryData, setRecoveryData] = useState(null)
   const [loading, setLoading] = useState(true)
+  
+  // UI states
+  const [showHistorical, setShowHistorical] = useState(false)
+  const [showNotes, setShowNotes] = useState(false)
 
   // Load initial data
   useEffect(() => {
+    // Select first patient by default
+    if (patients.length > 0 && !selectedPatient) {
+      setSelectedPatient(patients[0])
+    }
     loadData()
     
     // Subscribe to real-time updates
@@ -49,7 +68,7 @@ function App() {
       supabase.removeChannel(historyChannel)
       supabase.removeChannel(notesChannel)
     }
-  }, [])
+  }, [patients, selectedPatient])
 
   const loadData = async () => {
     await Promise.all([
@@ -196,30 +215,81 @@ function App() {
     <div className="app">
       <header className="app-header">
         <div className="header-content">
-          <Activity size={32} />
-          <div>
-            <h1>PT Assessment Dashboard</h1>
-            <p>Real-time Patient Monitoring & Analysis</p>
+          <div className="header-brand">
+            <Activity size={32} />
+            <div>
+              <h1>PT Assessment Dashboard</h1>
+              <p>Real-time Patient Monitoring & Analysis</p>
+            </div>
           </div>
         </div>
       </header>
 
+      {/* Patient Selector */}
+      <PatientSelector 
+        patients={patients}
+        selectedPatient={selectedPatient}
+        onSelectPatient={setSelectedPatient}
+      />
+
       <main className="app-main">
-        <div className="dashboard-grid">
-          <div className="grid-full">
-            <LiveSession sessionData={liveSession} />
+        <div className="main-content">
+          {/* Left: Video Stream */}
+          <div className="video-section">
+            <VideoStream 
+              patientId={selectedPatient?.id}
+              isLive={true}
+            />
           </div>
 
-          <div className="grid-half">
-            <RecoveryMetrics recoveryData={recoveryData} />
+          {/* Right: Patient Metrics */}
+          <div className="metrics-section">
+            <PatientMetrics 
+              patient={selectedPatient}
+              liveData={liveSession}
+            />
+          </div>
+        </div>
+
+        {/* Collapsible Sections */}
+        <div className="collapsible-sections">
+          {/* Recovery Metrics */}
+          <div className="collapsible-section">
+            <button 
+              className="section-toggle"
+              onClick={() => setShowHistorical(!showHistorical)}
+            >
+              <span>Historical Data & Recovery Metrics</span>
+              {showHistorical ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+            </button>
+            {showHistorical && (
+              <div className="section-content">
+                <div className="data-grid">
+                  <div className="grid-item">
+                    <RecoveryMetrics recoveryData={recoveryData} />
+                  </div>
+                  <div className="grid-item">
+                    <HistoricalCharts historicalData={historicalData} />
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
 
-          <div className="grid-half">
-            <DoctorNotes notes={doctorNotes} onSave={handleSaveNotes} />
-          </div>
-
-          <div className="grid-full">
-            <HistoricalCharts historicalData={historicalData} />
+          {/* Doctor's Notes */}
+          <div className="collapsible-section">
+            <button 
+              className="section-toggle"
+              onClick={() => setShowNotes(!showNotes)}
+            >
+              <span>Doctor's Notes & Treatment Plan</span>
+              {showNotes ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+            </button>
+            {showNotes && (
+              <div className="section-content">
+                <DoctorNotes notes={doctorNotes} onSave={handleSaveNotes} />
+              </div>
+            )}
           </div>
         </div>
       </main>
@@ -231,7 +301,7 @@ function App() {
 
       <footer className="app-footer">
         <p>PT Assessment Simulator - Test Environment</p>
-        <p className="footer-note">Share this URL to enable multi-user testing</p>
+        <p className="footer-note">Real-time video monitoring with patient metrics</p>
       </footer>
     </div>
   )
