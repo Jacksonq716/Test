@@ -1,0 +1,102 @@
+════════════════════════════════════════════════════════════════
+  📦 上传到 Vercel 的文件清单
+════════════════════════════════════════════════════════════════
+
+✅ 总计：39 个文件（不含 node_modules、dist）
+
+📊 文件分类：
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  📁 CSS 样式文件：          10 个
+  📁 JSX 组件文件：          10 个
+  📁 Markdown 文档：          8 个
+  📁 JSON 配置文件：          3 个
+  📁 JavaScript 文件：        2 个
+  📁 文本文件：               2 个
+  📁 其他配置：               4 个
+     (.gitignore, .gitattributes, .html, .sql)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🚀 如何上传到 Vercel？
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+方法 1：通过 GitHub Desktop（最简单）
+────────────────────────────────────
+1. 下载 GitHub Desktop: https://desktop.github.com/
+2. 打开 GitHub Desktop
+3. File → Add Local Repository
+4. 选择文件夹: c:\Users\Jacks\新建文件夹\pt-assessment-simulator
+5. 如果提示 "not a git repository"，点击 "Create a repository"
+6. 填写提交信息，点击 "Commit to main"
+7. 点击 "Publish repository"
+8. 在 Vercel 导入这个 GitHub 仓库
+
+方法 2：通过命令行（如果安装了 Git）
+────────────────────────────────────
+cd c:\Users\Jacks\新建文件夹\pt-assessment-simulator
+git init
+git add .
+git commit -m "Initial commit: PT Assessment Simulator"
+# 在 GitHub 创建仓库后：
+git remote add origin https://github.com/YOUR_USERNAME/pt-assessment-simulator.git
+git branch -M main
+git push -u origin main
+
+方法 3：直接在 Vercel 上传（无需 GitHub）
+────────────────────────────────────
+1. 压缩整个 pt-assessment-simulator 文件夹为 .zip
+2. 访问 https://vercel.com
+3. 点击 "Add New" → "Project"
+4. 选择 "Import from ZIP"
+5. 上传 zip 文件
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+❌ 不会上传的文件夹（自动排除）
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ❌ node_modules/     (~300 MB, Vercel 会自动安装)
+  ❌ dist/             (构建产物, Vercel 自动生成)
+  ❌ .vercel/          (本地配置)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📝 核心必需文件（Vercel 必须有这些才能部署）
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ✓ package.json                    (告诉 Vercel 需要哪些依赖)
+  ✓ package-lock.json               (锁定依赖版本)
+  ✓ vite.config.js                  (构建配置)
+  ✓ index.html                      (HTML 入口)
+  ✓ src/main.jsx                    (React 入口)
+  ✓ src/App.jsx                     (主应用)
+  ✓ src/services/supabase.js        (数据库连接)
+  ✓ src/components/...              (所有组件)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+💡 推荐步骤
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. 使用 GitHub Desktop（最简单，不需要懂命令行）
+2. 在 GitHub 上创建仓库
+3. 在 Vercel 导入 GitHub 仓库
+4. 点击 "Deploy"
+5. 等待 2-3 分钟
+6. 获得分享链接！
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎯 关键点
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ 这 39 个文件总大小约 320 KB（非常小）
+✅ .gitignore 会自动排除 node_modules（300 MB）
+✅ Vercel 会自动安装依赖并构建项目
+✅ 无需手动上传 node_modules 或 dist
+✅ 所有配置已准备好，直接上传即可
+
+════════════════════════════════════════════════════════════════
+
+详细说明请查看：Vercel部署文件清单.md
