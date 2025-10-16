@@ -1,0 +1,46 @@
+.historical-charts {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 24px;
+}
+
+.charts-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.charts-header h2 {
+  font-size: 24px;
+  color: #1f2937;
+}
+
+.charts-grid {
+  display: grid;
+  gap: 32px;
+}
+
+.chart-container {
+  background: #f9fafb;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.chart-container h3 {
+  font-size: 18px;
+  color: #1f2937;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.no-data {
+  text-align: center;
+  color: #6b7280;
+  padding: 40px;
+  font-size: 16px;
+}

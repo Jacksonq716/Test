@@ -1,0 +1,10 @@
+===============================================
+  COPY THIS AND RUN IN SUPABASE SQL EDITOR
+===============================================
+
+Step 1: Go to https://nhdnjgozjcbdrarwliwg.supabase.co
+Step 2: Click "SQL Editor" on the left
+Step 3: Copy everything below this line and paste into SQL Editor
+Step 4: Click "Run"
+
+---COPY FROM HERE---

@@ -1,0 +1,90 @@
+========================================
+  PT Assessment Simulator - GitHub 上传文件清单
+========================================
+
+📦 需要上传的所有文件（共 30 个）
+
+✅ 配置文件（7 个）
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ✓ .gitattributes
+  ✓ .gitignore
+  ✓ package.json
+  ✓ package-lock.json
+  ✓ vite.config.js
+  ✓ vercel.json
+  ✓ index.html
+
+✅ 文档文件（6 个）
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ✓ README.md
+  ✓ QUICK-START.md
+  ✓ DEPLOYMENT.md
+  ✓ GITHUB-DEPLOY.md
+  ✓ 项目总结.md
+  ✓ 测试数据说明.md
+
+✅ 数据库文件（2 个）
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ✓ supabase-setup.sql
+  ✓ SQL-SETUP-INSTRUCTIONS.txt
+
+✅ 源代码 - 入口文件（4 个）
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ✓ src/main.jsx
+  ✓ src/App.jsx
+  ✓ src/App.css
+  ✓ src/index.css
+
+✅ 源代码 - 服务（1 个）
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ✓ src/services/supabase.js
+
+✅ 源代码 - 组件（10 个）
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ✓ src/components/LiveSession/LiveSession.jsx
+  ✓ src/components/LiveSession/LiveSession.css
+  ✓ src/components/HistoricalCharts/HistoricalCharts.jsx
+  ✓ src/components/HistoricalCharts/HistoricalCharts.css
+  ✓ src/components/DoctorNotes/DoctorNotes.jsx
+  ✓ src/components/DoctorNotes/DoctorNotes.css
+  ✓ src/components/RecoveryMetrics/RecoveryMetrics.jsx
+  ✓ src/components/RecoveryMetrics/RecoveryMetrics.css
+  ✓ src/components/DataEntry/DataEntry.jsx
+  ✓ src/components/DataEntry/DataEntry.css
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+❌ 不要上传的文件/文件夹（.gitignore 已配置）
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ✗ node_modules/          (依赖包，自动安装)
+  ✗ dist/                  (构建产物，自动生成)
+  ✗ .vercel/               (Vercel 配置)
+  ✗ .env                   (环境变量)
+  ✗ .DS_Store              (系统文件)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🚀 快速上传命令（复制粘贴即可）
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# 1. 初始化 Git
+cd c:\Users\Jacks\新建文件夹\pt-assessment-simulator
+git init
+git add .
+git commit -m "Initial commit: PT Assessment Simulator"
+
+# 2. 在 GitHub 创建仓库后，执行（替换 YOUR_USERNAME）
+git remote add origin https://github.com/YOUR_USERNAME/pt-assessment-simulator.git
+git branch -M main
+git push -u origin main
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📝 说明
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+所有这 30 个文件会被自动上传到 GitHub。
+node_modules 文件夹（约 300MB）不会上传。
+Vercel 部署时会自动安装依赖并构建项目。
+
+详细步骤请查看：GITHUB-DEPLOY.md
